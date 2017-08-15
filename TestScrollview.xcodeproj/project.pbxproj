@@ -15,6 +15,7 @@
 		DC74C70A1F432187000F1AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC74C7081F432187000F1AB3 /* LaunchScreen.storyboard */; };
 		DC74C7131F4321C3000F1AB3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74C7121F4321C3000F1AB3 /* TableViewController.m */; };
 		DC74C7161F4324BF000F1AB3 /* JuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74C7151F4324BF000F1AB3 /* JuTableView.m */; };
+		DC74C7191F4336BA000F1AB3 /* JuScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74C7181F4336BA000F1AB3 /* JuScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		DC74C7121F4321C3000F1AB3 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		DC74C7141F4324BF000F1AB3 /* JuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuTableView.h; sourceTree = "<group>"; };
 		DC74C7151F4324BF000F1AB3 /* JuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuTableView.m; sourceTree = "<group>"; };
+		DC74C7171F4336BA000F1AB3 /* JuScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuScrollView.h; sourceTree = "<group>"; };
+		DC74C7181F4336BA000F1AB3 /* JuScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				DC74C7121F4321C3000F1AB3 /* TableViewController.m */,
 				DC74C7141F4324BF000F1AB3 /* JuTableView.h */,
 				DC74C7151F4324BF000F1AB3 /* JuTableView.m */,
+				DC74C7171F4336BA000F1AB3 /* JuScrollView.h */,
+				DC74C7181F4336BA000F1AB3 /* JuScrollView.m */,
 				DC74C7031F432186000F1AB3 /* Main.storyboard */,
 				DC74C7061F432187000F1AB3 /* Assets.xcassets */,
 				DC74C7081F432187000F1AB3 /* LaunchScreen.storyboard */,
@@ -120,6 +125,7 @@
 				TargetAttributes = {
 					DC74C6F61F432186000F1AB3 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = WV9ES88N2K;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -164,6 +170,7 @@
 				DC74C6FF1F432186000F1AB3 /* AppDelegate.m in Sources */,
 				DC74C6FC1F432186000F1AB3 /* main.m in Sources */,
 				DC74C7131F4321C3000F1AB3 /* TableViewController.m in Sources */,
+				DC74C7191F4336BA000F1AB3 /* JuScrollView.m in Sources */,
 				DC74C7161F4324BF000F1AB3 /* JuTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,10 +291,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WV9ES88N2K;
 				INFOPLIST_FILE = TestScrollview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Juvid.TestScrollview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -295,10 +306,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WV9ES88N2K;
 				INFOPLIST_FILE = TestScrollview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Juvid.TestScrollview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

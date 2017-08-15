@@ -27,9 +27,9 @@
         scrollView.contentOffset=CGPointMake(0, 64);
     }
     
-    if (_tableView.contentOffset.y==_tableView.contentSize.height-_tableView.frame.size.height) {
-        _tableView.contentOffset=CGPointMake(0, _tableView.contentSize.height-_tableView.frame.size.height-1);
-    }
+//    if (_tableView.contentOffset.y==_tableView.contentSize.height-_tableView.frame.size.height) {
+//        _tableView.contentOffset=CGPointMake(0, _tableView.contentSize.height-_tableView.frame.size.height-1);
+//    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
