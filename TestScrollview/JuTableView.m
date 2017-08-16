@@ -51,20 +51,21 @@
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 //    startScrollPoint=_ju_scrollView.contentOffset;
-    startPoint=self.contentOffset;
+//    startPoint=self.contentOffset;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (self.contentOffset.y<0) {/// 当table下拉时防止table出现弹性效果
-        self.contentOffset=CGPointMake(0, 0);
-        return;
-    }
-    if (lastPoint.y<scrollView.contentOffset.y) { /// 当上拉table时
-        if (_ju_scrollView.contentOffset.y<64&&startPoint.y<=0) {///< 外层还没有置顶 保持table与外层粘合在一起 &&startScrollPoint.y<64
-            self.contentOffset=CGPointMake(0, 0);
-        }
-    }
-     lastPoint=scrollView.contentOffset;
+//   
+//    if (self.contentOffset.y<0) {/// 当table下拉时防止table出现弹性效果
+//        self.contentOffset=CGPointMake(0, 0);
+//        return;
+//    }
+//    if (lastPoint.y<scrollView.contentOffset.y) { /// 当上拉table时
+//        if (self.ju_scrollView.contentOffset.y<64&&startPoint.y<=0) {///< 外层还没有置顶 保持table与外层粘合在一起 &&startScrollPoint.y<64
+//            self.contentOffset=CGPointMake(0, 0);
+//        }
+//    }
+//     lastPoint=scrollView.contentOffset;
 
 //    if (scrollView.contentOffset.y>0) {
 //         _ju_scrollView.contentOffset=CGPointMake(0, 64);

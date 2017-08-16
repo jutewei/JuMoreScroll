@@ -46,7 +46,7 @@
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     if ([scrollView isEqual:_juScroll]) {
         startPoint=_juScroll.contentOffset;
-        NSLog(@"开始位置 1:%f",startPoint.y);
+//        NSLog(@"开始位置 1:%f",startPoint.y);
     }
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -56,7 +56,6 @@
             _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
             return;
         }
-        NSLog(@"%d",_tableView.dragging);
         if (_tableView.dragging) {///< table滚动带动的才响应
             if (lastPoint.y>scrollView.contentOffset.y) {///< 当table往下拉&&startPoint.y>64
                 if (_tableView.contentOffset.y>0) { ///< 定位最外层scroll标题头

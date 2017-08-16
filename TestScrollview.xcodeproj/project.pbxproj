@@ -20,6 +20,7 @@
 		EBB324651F440D6400919F95 /* UIView+JuConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3245F1F440D6400919F95 /* UIView+JuConstraint.m */; };
 		EBB324661F440D6400919F95 /* UIView+JuLayGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB324611F440D6400919F95 /* UIView+JuLayGroup.m */; };
 		EBB324671F440D6400919F95 /* UIView+JuLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB324631F440D6400919F95 /* UIView+JuLayout.m */; };
+		EBB3247B1F4443EF00919F95 /* JuMultiScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3247A1F4443EF00919F95 /* JuMultiScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		EBB324611F440D6400919F95 /* UIView+JuLayGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JuLayGroup.m"; sourceTree = "<group>"; };
 		EBB324621F440D6400919F95 /* UIView+JuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JuLayout.h"; sourceTree = "<group>"; };
 		EBB324631F440D6400919F95 /* UIView+JuLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JuLayout.m"; sourceTree = "<group>"; };
+		EBB324791F4443EF00919F95 /* JuMultiScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuMultiScrollView.h; sourceTree = "<group>"; };
+		EBB3247A1F4443EF00919F95 /* JuMultiScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuMultiScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				DC74C6FE1F432186000F1AB3 /* AppDelegate.m */,
 				DC74C7001F432186000F1AB3 /* ViewController.h */,
 				DC74C7011F432186000F1AB3 /* ViewController.m */,
+				EBB324791F4443EF00919F95 /* JuMultiScrollView.h */,
+				EBB3247A1F4443EF00919F95 /* JuMultiScrollView.m */,
 				DC74C7141F4324BF000F1AB3 /* JuTableView.h */,
 				DC74C7151F4324BF000F1AB3 /* JuTableView.m */,
 				DC74C7111F4321C3000F1AB3 /* TableViewController.h */,
@@ -198,6 +203,7 @@
 			files = (
 				EBB324651F440D6400919F95 /* UIView+JuConstraint.m in Sources */,
 				EBB324671F440D6400919F95 /* UIView+JuLayout.m in Sources */,
+				EBB3247B1F4443EF00919F95 /* JuMultiScrollView.m in Sources */,
 				EBB324641F440D6400919F95 /* JuLayout.m in Sources */,
 				EBB324661F440D6400919F95 /* UIView+JuLayGroup.m in Sources */,
 				DC74C7021F432186000F1AB3 /* ViewController.m in Sources */,

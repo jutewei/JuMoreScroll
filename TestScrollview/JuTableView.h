@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Juvid. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JuMultiScrollView.h"
 
-@interface JuTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
-@property (weak,nonatomic)UIScrollView *ju_scrollView;
+@interface JuTableView : JuMultiTableView<UITableViewDelegate,UITableViewDataSource>
+//@property (weak,nonatomic)UIScrollView *ju_scrollView;
 //@property (assign)BOOL isDrag;
 @end
