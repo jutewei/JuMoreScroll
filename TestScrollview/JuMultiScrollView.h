@@ -14,6 +14,8 @@
     BOOL isTable;
 }
 @property (weak,nonatomic)UITableView *ju_tableView;
+@property (assign,nonatomic)CGFloat ju_topSpace;
+
 @end
 
 
@@ -21,6 +23,6 @@
     CGPoint startPoint;
     CGPoint lastPoint;
 }
-@property (weak,nonatomic)UIScrollView *ju_scrollView;
+@property (weak,nonatomic)JuMultiScrollView *ju_scrollView;
 //@property (assign)BOOL isDrag;
 @end
