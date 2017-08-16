@@ -53,29 +53,11 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     if ([scrollView isEqual:_juScroll]) {
-        if (scrollView.contentOffset.y>64) {///< 当往上拖动，最外层scroll定位到标题头
-            _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
-            return;
-        }
-        
-        if (lastPoint.y>scrollView.contentOffset.y) {///< 当table往下拉&&startPoint.y>64
-            if (_tableView.contentOffset.y>0) { ///< 定位最外层scroll标题头
-                 _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
-            }
-        }else{
-            
-        }
-        
-          lastPoint=scrollView.contentOffset;
-        if (startTablePoint.y>0&&startScrollPoint.y<64) {
-            
-            return;
-        }
-        
-        
+        if (scrollView.contentOffset.y>64||_tableView.contentOffset.y>0) {
+            scrollView.contentOffset=CGPointMake(0, 64);
+        }        
     }
   
-    
 //    if (_tableView.contentOffset.y==_tableView.contentSize.height-_tableView.frame.size.height) {
 //        _tableView.contentOffset=CGPointMake(0, _tableView.contentSize.height-_tableView.frame.size.height-1);
 //    }
@@ -84,7 +66,7 @@
     if ([scrollView isEqual:_scrollBox]) {
         NSInteger tag= scrollView.contentOffset.x/scrollView.frame.size.width;
         _tableView=[_scrollBox viewWithTag:10+tag];
-//        [_juScroll setContentOffset:CGPointMake(0, 64) animated:YES];///方法一每次置顶
+        [_juScroll setContentOffset:CGPointMake(0, 64) animated:YES];///方法一每次置顶
     }
 }
 - (void)didReceiveMemoryWarning {

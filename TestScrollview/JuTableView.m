@@ -56,16 +56,13 @@
     
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (self.contentOffset.y<0) {/// 当table下拉时防止table出现弹性效果
-        self.contentOffset=CGPointMake(0, 0);
-        return;
-    }
-    if (lastPoint.y<scrollView.contentOffset.y) { /// 当上拉table时
-        if (_ju_scrollView.contentOffset.y<64) {///< 外层还没有置顶 保持table与外层粘合在一起
+    if (lastPoint.y<scrollView.contentOffset.y) {
+        if (_ju_scrollView.contentOffset.y<64) {
             scrollView.contentOffset=CGPointMake(0, 0);
         }
-    }else{///< 下拉
-        
+    }
+    if (self.contentOffset.y<0) {
+        self.contentOffset=CGPointMake(0, 0);
     }
     
      lastPoint=scrollView.contentOffset;
