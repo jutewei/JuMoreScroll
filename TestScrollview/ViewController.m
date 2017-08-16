@@ -11,8 +11,7 @@
 #import "UIView+JuLayGroup.h"
 #define Screen_Width     [[UIScreen mainScreen] bounds].size.width    //屏幕宽
 @interface ViewController (){
-    CGPoint startScrollPoint;
-    CGPoint startTablePoint;
+    CGPoint startPoint;
     CGPoint lastPoint;
 }
 @property (weak, nonatomic) JuTableView *tableView;
@@ -46,9 +45,8 @@
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     if ([scrollView isEqual:_juScroll]) {
-        startScrollPoint=_juScroll.contentOffset;
-        startTablePoint=_tableView.contentOffset;
-        NSLog(@"开始位置 1:%f 2:%f",startScrollPoint.y,startTablePoint.y);
+        startPoint=_juScroll.contentOffset;
+        NSLog(@"开始位置 1:%f",startPoint.y);
     }
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -58,18 +56,18 @@
             _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
             return;
         }
-        if (_tableView.isDrag) {///< table滚动带动的才响应
+        NSLog(@"%d",_tableView.dragging);
+        if (_tableView.dragging) {///< table滚动带动的才响应
             if (lastPoint.y>scrollView.contentOffset.y) {///< 当table往下拉&&startPoint.y>64
-                if (startTablePoint.y>0&&startScrollPoint.y<64) {///< 当拖动的时候位置就已经偏移
-                    if (_tableView.contentOffset.y>0) {///< scroll 固定在以前位置
-                        _juScroll.contentOffset=startScrollPoint;
+                if (_tableView.contentOffset.y>0) { ///< 定位最外层scroll标题头
+                    if (startPoint.y<64) {/// 当拖动的时候位置就已经偏移  ///< scroll 固定在以前位置
+                        _juScroll.contentOffset=startPoint;
+                    }else{
+                        _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
                     }
                 }
-                else if (_tableView.contentOffset.y>0) { ///< 定位最外层scroll标题头
-                    _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
-                }
             }else{/// 往上拖动坐标会改变
-                startScrollPoint=scrollView.contentOffset;
+                startPoint=scrollView.contentOffset;
             }
         }
         lastPoint=scrollView.contentOffset;
