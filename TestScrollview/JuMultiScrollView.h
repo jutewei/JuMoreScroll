@@ -11,6 +11,7 @@
 @interface JuMultiScrollView : UIScrollView{
     CGPoint startPoint;
     CGPoint lastPoint;
+    BOOL isTable;
 }
 @property (weak,nonatomic)UITableView *ju_tableView;
 @end
