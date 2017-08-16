@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "JuTableView.h"
 #import "UIView+JuLayGroup.h"
+#define Screen_Width     [[UIScreen mainScreen] bounds].size.width    //屏幕宽
 @interface ViewController (){
     CGPoint startScrollPoint;
     CGPoint startTablePoint;
@@ -32,13 +33,13 @@
         table.tag=i+10;
         [_scrollBox addSubview:table];
           table.ju_scrollView=_juScroll;
-        table.juFrame(CGRectMake(0.01+375*i,0,0,0));
+        table.juFrame(CGRectMake(0.01+Screen_Width*i,0,0,0));
         if (i==0) {
             _tableView=table;
         }
     }
   
-    _scrollBox.contentSize=CGSizeMake(375*2, 0);
+    _scrollBox.contentSize=CGSizeMake(Screen_Width*2, 0);
     
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -57,25 +58,23 @@
             _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
             return;
         }
-        
-        if (lastPoint.y>scrollView.contentOffset.y) {///< 当table往下拉&&startPoint.y>64
-            if (_tableView.contentOffset.y>0) { ///< 定位最外层scroll标题头
-                 _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
+        if (_tableView.isDrag) {///< table滚动带动的才响应
+            if (lastPoint.y>scrollView.contentOffset.y) {///< 当table往下拉&&startPoint.y>64
+                if (startTablePoint.y>0&&startScrollPoint.y<64) {///< 当拖动的时候位置就已经偏移
+                    if (_tableView.contentOffset.y>0) {///< scroll 固定在以前位置
+                        _juScroll.contentOffset=startScrollPoint;
+                    }
+                }
+                else if (_tableView.contentOffset.y>0) { ///< 定位最外层scroll标题头
+                    _juScroll.contentOffset=CGPointMake(0, 64);///防止外层滚动
+                }
+            }else{/// 往上拖动坐标会改变
+                startScrollPoint=scrollView.contentOffset;
             }
-        }else{
-            
         }
-        
-          lastPoint=scrollView.contentOffset;
-        if (startTablePoint.y>0&&startScrollPoint.y<64) {
-            
-            return;
-        }
-        
-        
+        lastPoint=scrollView.contentOffset;
     }
   
-    
 //    if (_tableView.contentOffset.y==_tableView.contentSize.height-_tableView.frame.size.height) {
 //        _tableView.contentOffset=CGPointMake(0, _tableView.contentSize.height-_tableView.frame.size.height-1);
 //    }

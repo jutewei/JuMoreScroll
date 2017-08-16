@@ -85,10 +85,10 @@
 				DC74C6FE1F432186000F1AB3 /* AppDelegate.m */,
 				DC74C7001F432186000F1AB3 /* ViewController.h */,
 				DC74C7011F432186000F1AB3 /* ViewController.m */,
-				DC74C7111F4321C3000F1AB3 /* TableViewController.h */,
-				DC74C7121F4321C3000F1AB3 /* TableViewController.m */,
 				DC74C7141F4324BF000F1AB3 /* JuTableView.h */,
 				DC74C7151F4324BF000F1AB3 /* JuTableView.m */,
+				DC74C7111F4321C3000F1AB3 /* TableViewController.h */,
+				DC74C7121F4321C3000F1AB3 /* TableViewController.m */,
 				DC74C7171F4336BA000F1AB3 /* JuScrollView.h */,
 				DC74C7181F4336BA000F1AB3 /* JuScrollView.m */,
 				DC74C7031F432186000F1AB3 /* Main.storyboard */,
@@ -155,8 +155,8 @@
 				TargetAttributes = {
 					DC74C6F61F432186000F1AB3 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = WV9ES88N2K;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 3Y5SHRC9L9;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -326,13 +326,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WV9ES88N2K;
+				DEVELOPMENT_TEAM = 3Y5SHRC9L9;
 				INFOPLIST_FILE = TestScrollview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Juvid.TestScrollview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6a6e5898-4211-4127-a086-4d327ec1ce77";
+				PROVISIONING_PROFILE_SPECIFIER = TestAll;
 			};
 			name = Debug;
 		};
@@ -341,7 +341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WV9ES88N2K;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TestScrollview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Juvid.TestScrollview;
