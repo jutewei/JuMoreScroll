@@ -42,8 +42,8 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"%f",self.tableView.contentOffset.y);
-    self.tableView.contentOffset=CGPointMake(0, -64);
+//    NSLog(@"%f",self.tableView.contentOffset.y);
+//    self.tableView.contentOffset=CGPointMake(0, -64);
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

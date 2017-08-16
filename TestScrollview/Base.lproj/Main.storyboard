@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RUx-7C-rPf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RUx-7C-rPf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,22 +24,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW6-4K-G5H" customClass="JuScrollView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="id7-dL-5Ad">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="id7-dL-5Ad">
                                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cE-FE-uE0" customClass="JuTableView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </tableView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="0cE-FE-uE0" secondAttribute="bottom" id="7u6-eU-4yq"/>
-                                            <constraint firstAttribute="trailing" secondItem="0cE-FE-uE0" secondAttribute="trailing" id="ECY-bq-4wz"/>
-                                            <constraint firstItem="0cE-FE-uE0" firstAttribute="leading" secondItem="id7-dL-5Ad" secondAttribute="leading" id="NTG-Pj-fTR"/>
-                                            <constraint firstItem="0cE-FE-uE0" firstAttribute="width" secondItem="id7-dL-5Ad" secondAttribute="width" id="Vw9-25-2wI"/>
-                                            <constraint firstItem="0cE-FE-uE0" firstAttribute="height" secondItem="id7-dL-5Ad" secondAttribute="height" id="eEo-H1-b1G"/>
-                                            <constraint firstItem="0cE-FE-uE0" firstAttribute="top" secondItem="id7-dL-5Ad" secondAttribute="top" id="hjU-wy-mQt"/>
-                                        </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="kin-Tj-zIj"/>
+                                        </connections>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvc-yd-c77">
                                         <rect key="frame" x="0.0" y="64" width="375" height="44"/>
@@ -77,12 +66,12 @@
                     <navigationItem key="navigationItem" id="NQW-qw-o8N"/>
                     <connections>
                         <outlet property="juScroll" destination="HW6-4K-G5H" id="zWI-iV-cxg"/>
-                        <outlet property="tableView" destination="0cE-FE-uE0" id="x2R-Bw-PI0"/>
+                        <outlet property="scrollBox" destination="id7-dL-5Ad" id="BgF-Mz-KxY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="49.925037481259373"/>
+            <point key="canvasLocation" x="-569" y="15"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="xrR-22-kik">

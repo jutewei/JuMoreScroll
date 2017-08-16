@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JuTableView : UITableView<UITableViewDelegate,UITableViewDataSource>{
-    CGPoint point;
-}
+@interface JuTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 @property (weak,nonatomic)UIScrollView *ju_scrollView;
 @end

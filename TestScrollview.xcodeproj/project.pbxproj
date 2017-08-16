@@ -16,6 +16,10 @@
 		DC74C7131F4321C3000F1AB3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74C7121F4321C3000F1AB3 /* TableViewController.m */; };
 		DC74C7161F4324BF000F1AB3 /* JuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74C7151F4324BF000F1AB3 /* JuTableView.m */; };
 		DC74C7191F4336BA000F1AB3 /* JuScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC74C7181F4336BA000F1AB3 /* JuScrollView.m */; };
+		EBB324641F440D6400919F95 /* JuLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3245D1F440D6400919F95 /* JuLayout.m */; };
+		EBB324651F440D6400919F95 /* UIView+JuConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB3245F1F440D6400919F95 /* UIView+JuConstraint.m */; };
+		EBB324661F440D6400919F95 /* UIView+JuLayGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB324611F440D6400919F95 /* UIView+JuLayGroup.m */; };
+		EBB324671F440D6400919F95 /* UIView+JuLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB324631F440D6400919F95 /* UIView+JuLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,15 @@
 		DC74C7151F4324BF000F1AB3 /* JuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuTableView.m; sourceTree = "<group>"; };
 		DC74C7171F4336BA000F1AB3 /* JuScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuScrollView.h; sourceTree = "<group>"; };
 		DC74C7181F4336BA000F1AB3 /* JuScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuScrollView.m; sourceTree = "<group>"; };
+		EBB3245B1F440D6400919F95 /* JuLayout-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JuLayout-Bridging-Header.h"; sourceTree = "<group>"; };
+		EBB3245C1F440D6400919F95 /* JuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuLayout.h; sourceTree = "<group>"; };
+		EBB3245D1F440D6400919F95 /* JuLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuLayout.m; sourceTree = "<group>"; };
+		EBB3245E1F440D6400919F95 /* UIView+JuConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JuConstraint.h"; sourceTree = "<group>"; };
+		EBB3245F1F440D6400919F95 /* UIView+JuConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JuConstraint.m"; sourceTree = "<group>"; };
+		EBB324601F440D6400919F95 /* UIView+JuLayGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JuLayGroup.h"; sourceTree = "<group>"; };
+		EBB324611F440D6400919F95 /* UIView+JuLayGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JuLayGroup.m"; sourceTree = "<group>"; };
+		EBB324621F440D6400919F95 /* UIView+JuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JuLayout.h"; sourceTree = "<group>"; };
+		EBB324631F440D6400919F95 /* UIView+JuLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JuLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +80,7 @@
 		DC74C6F91F432186000F1AB3 /* TestScrollview */ = {
 			isa = PBXGroup;
 			children = (
+				EBB3245A1F440D6400919F95 /* OCLayout */,
 				DC74C6FD1F432186000F1AB3 /* AppDelegate.h */,
 				DC74C6FE1F432186000F1AB3 /* AppDelegate.m */,
 				DC74C7001F432186000F1AB3 /* ViewController.h */,
@@ -92,6 +106,22 @@
 				DC74C6FB1F432186000F1AB3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EBB3245A1F440D6400919F95 /* OCLayout */ = {
+			isa = PBXGroup;
+			children = (
+				EBB3245B1F440D6400919F95 /* JuLayout-Bridging-Header.h */,
+				EBB3245C1F440D6400919F95 /* JuLayout.h */,
+				EBB3245D1F440D6400919F95 /* JuLayout.m */,
+				EBB3245E1F440D6400919F95 /* UIView+JuConstraint.h */,
+				EBB3245F1F440D6400919F95 /* UIView+JuConstraint.m */,
+				EBB324601F440D6400919F95 /* UIView+JuLayGroup.h */,
+				EBB324611F440D6400919F95 /* UIView+JuLayGroup.m */,
+				EBB324621F440D6400919F95 /* UIView+JuLayout.h */,
+				EBB324631F440D6400919F95 /* UIView+JuLayout.m */,
+			);
+			path = OCLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +196,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB324651F440D6400919F95 /* UIView+JuConstraint.m in Sources */,
+				EBB324671F440D6400919F95 /* UIView+JuLayout.m in Sources */,
+				EBB324641F440D6400919F95 /* JuLayout.m in Sources */,
+				EBB324661F440D6400919F95 /* UIView+JuLayGroup.m in Sources */,
 				DC74C7021F432186000F1AB3 /* ViewController.m in Sources */,
 				DC74C6FF1F432186000F1AB3 /* AppDelegate.m in Sources */,
 				DC74C6FC1F432186000F1AB3 /* main.m in Sources */,
