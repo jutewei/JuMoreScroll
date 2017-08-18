@@ -42,6 +42,8 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+      [scrollView setContentOffset:CGPointMake(0, 80)];
 //    NSLog(@"%f",self.tableView.contentOffset.y);
 //    self.tableView.contentOffset=CGPointMake(0, -64);
 }
@@ -53,7 +55,9 @@
     cell.textLabel.text=@"45iop";
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   [tableView setContentOffset:CGPointMake(0, 80)];
+}
 
 /*
 // Override to support conditional editing of the table view.

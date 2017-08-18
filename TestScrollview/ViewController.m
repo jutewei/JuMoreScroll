@@ -81,7 +81,7 @@
         NSInteger tag= scrollView.contentOffset.x/scrollView.frame.size.width;
 //        _tableView=[_scrollBox viewWithTag:10+tag];
         _juScroll.ju_tableView=[_scrollBox viewWithTag:10+tag];
-        [_juScroll setContentOffset:CGPointMake(0, 64) animated:YES];///方法一每次置顶
+//        [_juScroll setContentOffset:CGPointMake(0, 64) animated:YES];///方法一每次置顶
     }
 }
 - (void)didReceiveMemoryWarning {
