@@ -10,15 +10,17 @@
 
 @implementation JuMultiScrollView
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    isDragTable=NO;
     startPoint=self.contentOffset;
     if (_ju_topSpace==0) {
         _ju_topSpace=self.contentSize.height-self.frame.size.height;
     }
+    
+    isDragTable=NO;
     UIView *supView=[super hitTest:point withEvent:event];
-    while (![supView isKindOfClass:[JuMultiScrollView class]]) {
+    while (supView&&![supView isKindOfClass:[JuMultiScrollView class]]) {
         if ([supView isKindOfClass:[JuMultiTableView class]]) {
             isDragTable=YES;
+            ju_tableView=(id)supView;
             break;
         }
         supView=supView.superview;
@@ -39,14 +41,17 @@
 {
    
     if ([keyPath isEqualToString:@"contentOffset"]) {
+        if (!ju_tableView) {
+            return;
+        }
         
         if (self.contentOffset.y>_ju_topSpace) {///< 当往上拖动，最外层scroll定位到标题头
             self.contentOffset=CGPointMake(0, _ju_topSpace);///防止外层滚动
             return;
         }
-        if (_ju_tableView.dragging||isDragTable) {///< table滚动带动的才响应
+        if (ju_tableView.dragging||isDragTable) {///< table滚动带动的才响应
             if (lastPoint.y>self.contentOffset.y) {///< 当内层table下拉&&startPoint.y>64
-                if (_ju_tableView.contentOffset.y>0&&self.contentOffset.y!=startPoint.y) { ///< 定位最外层scroll标题头
+                if (ju_tableView.contentOffset.y>0&&self.contentOffset.y!=startPoint.y) { ///< 定位最外层scroll标题头
 //                    if (startPoint.y<64) {/// 当拖动的时候位置就已经偏移  ///< scroll 固定在以前位置
                         self.contentOffset=startPoint;
 //                    }else{
@@ -81,13 +86,16 @@
 {
     if ([keyPath isEqualToString:@"contentOffset"]) {
 //        CGPoint pointNew=[change[@"new"] CGPointValue];
-
+        if (!ju_scrollView) {
+            return;
+        }
+        
         if (self.contentOffset.y<0) {/// 当table下拉时防止table出现弹性效果
             self.contentOffset=CGPointMake(0, 0);
             return;
         }
         if (lastPoint.y<self.contentOffset.y) { /// 当上拉table时
-            if (_ju_scrollView.contentOffset.y<_ju_scrollView.ju_topSpace&&startPoint.y<=0&&self.contentOffset.y!=0) {///< 外层还没有置顶 并且内层与外层初始是黏在一起的 保持table与外层粘合在一起
+            if (ju_scrollView.contentOffset.y<ju_scrollView.ju_topSpace&&startPoint.y<=0&&self.contentOffset.y!=0) {///< 外层还没有置顶 并且内层与外层初始是黏在一起的 保持table与外层粘合在一起
                 self.contentOffset=CGPointMake(0, 0);
             }
         }
@@ -111,6 +119,13 @@
 }
 
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+    if (!ju_scrollView) {
+        UIView *supView=self.superview;
+        while (supView&&![supView isKindOfClass:[JuMultiScrollView class]]) {
+            supView=supView.superview;
+        }
+        ju_scrollView=(JuMultiScrollView *)supView;
+    }
      startPoint=self.contentOffset;
     return [super hitTest:point withEvent:event];
 }

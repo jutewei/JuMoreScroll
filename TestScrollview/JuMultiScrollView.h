@@ -16,8 +16,9 @@
     CGPoint startPoint;
     CGPoint lastPoint;
     BOOL isDragTable;
+    UITableView *ju_tableView;
 }
-@property (weak,nonatomic)UITableView *ju_tableView;
+
 @property (assign,nonatomic)CGFloat ju_topSpace;
 
 @end
@@ -26,7 +27,7 @@
 @interface JuMultiTableView : UITableView{
     CGPoint startPoint;
     CGPoint lastPoint;
+    JuMultiScrollView *ju_scrollView;
 }
-@property (weak,nonatomic)JuMultiScrollView *ju_scrollView;
 //@property (assign)BOOL isDrag;
 @end

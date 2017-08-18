@@ -31,10 +31,10 @@
         JuTableView *table=[[JuTableView alloc]init];
         table.tag=i+10;
         [_scrollBox addSubview:table];
-          table.ju_scrollView=_juScroll;
+//          table.ju_scrollView=_juScroll;
         table.juFrame(CGRectMake(0.01+Screen_Width*i,0,0,0));
         if (i==0) {
-            _juScroll.ju_tableView=table;
+//            _juScroll.ju_tableView=table;
         }
     }
   
@@ -78,9 +78,9 @@
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([scrollView isEqual:_scrollBox]) {
-        NSInteger tag= scrollView.contentOffset.x/scrollView.frame.size.width;
+//        NSInteger tag= scrollView.contentOffset.x/scrollView.frame.size.width;
 //        _tableView=[_scrollBox viewWithTag:10+tag];
-        _juScroll.ju_tableView=[_scrollBox viewWithTag:10+tag];
+//        _juScroll.ju_tableView=[_scrollBox viewWithTag:10+tag];
 //        [_juScroll setContentOffset:CGPointMake(0, 64) animated:YES];///方法一每次置顶
     }
 }
