@@ -19,7 +19,7 @@
     UITableView *ju_tableView;
 }
 
-@property (assign,nonatomic)CGFloat ju_topSpace;
+@property (assign,nonatomic)NSInteger ju_topSpace;
 
 @end
 
