@@ -12,22 +12,13 @@
  */
 #import <UIKit/UIKit.h>
 
-@interface JuMultiScrollView : UIScrollView{
-    CGPoint startPoint;
-    CGPoint lastPoint;
-    BOOL isDragTable;
-    UITableView *ju_tableView;
-}
+@interface JuMultiScrollView : UIScrollView
 
 @property (assign,nonatomic)NSInteger ju_topSpace;
 
 @end
 
 
-@interface JuMultiTableView : UITableView{
-    CGPoint startPoint;
-    CGPoint lastPoint;
-    JuMultiScrollView *ju_scrollView;
-}
+@interface JuMultiTableView : UITableView
 //@property (assign)BOOL isDrag;
 @end

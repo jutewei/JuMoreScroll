@@ -7,6 +7,13 @@
 //
 
 #import "JuMultiScrollView.h"
+@interface JuMultiScrollView (){
+    CGPoint startPoint;
+    CGPoint lastPoint;
+    BOOL isDragTable;
+    __weak UITableView *ju_tableView;
+}
+@end
 
 @implementation JuMultiScrollView
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
@@ -39,59 +46,72 @@
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-   
+    
     if ([keyPath isEqualToString:@"contentOffset"]) {
-        if (!ju_tableView) {
-            return;
-        }
         
         if (self.contentOffset.y>_ju_topSpace) {///< 当往上拖动，最外层scroll定位到标题头
             self.contentOffset=CGPointMake(0, _ju_topSpace);///防止外层滚动
             return;
         }
+        
+        if (!ju_tableView) {
+            return;
+        }
+        
         if (ju_tableView.dragging||isDragTable) {///< table滚动带动的才响应
             if (lastPoint.y>self.contentOffset.y) {///< 当内层table下拉&&startPoint.y>64
                 if (ju_tableView.contentOffset.y>0&&self.contentOffset.y!=startPoint.y) { ///< 定位最外层scroll标题头
-//                    if (startPoint.y<64) {/// 当拖动的时候位置就已经偏移  ///< scroll 固定在以前位置
-                        self.contentOffset=startPoint;
-//                    }else{
-//                        self.contentOffset=CGPointMake(0, 64);///防止外层滚动
-//                    }
+                    //                    if (startPoint.y<64) {/// 当拖动的时候位置就已经偏移  ///< scroll 固定在以前位置
+                    self.contentOffset=startPoint;
+                    //                    }else{
+                    //                        self.contentOffset=CGPointMake(0, 64);///防止外层滚动
+                    //                    }
                 }
             }else{/// 往上拖动坐标会改变
                 startPoint=self.contentOffset;
             }
         }
         /*else{/// 此条件可以在浮快置顶的时候禁止外层滚动
-            if (_ju_tableView.contentOffset.y>0&&self.contentOffset.y!=_ju_topSpace) {
-                 self.contentOffset=CGPointMake(0, _ju_topSpace);///防止外层滚动
-            }
-        }*/
+         if (_ju_tableView.contentOffset.y>0&&self.contentOffset.y!=_ju_topSpace) {
+         self.contentOffset=CGPointMake(0, _ju_topSpace);///防止外层滚动
+         }
+         }*/
         lastPoint=self.contentOffset;
-      
+        
     }
 }
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
+
+@end
+
+@interface JuMultiTableView(){
+    CGPoint startPoint;
+    CGPoint lastPoint;
+    __weak  JuMultiScrollView *ju_scrollView;
+    __weak  UIScrollView  *ju_scrHorizontal;
 }
-*/
 
 @end
 
 @implementation JuMultiTableView
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    
     if ([keyPath isEqualToString:@"contentOffset"]) {
-//        CGPoint pointNew=[change[@"new"] CGPointValue];
+        //        CGPoint pointNew=[change[@"new"] CGPointValue];
         if (!ju_scrollView) {
             return;
         }
         
         if (self.contentOffset.y<0) {/// 当table下拉时防止table出现弹性效果
             self.contentOffset=CGPointMake(0, 0);
+            
             return;
         }
         if (lastPoint.y<self.contentOffset.y) { /// 当上拉table时
@@ -115,6 +135,9 @@
     }
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    if ([ju_scrHorizontal.gestureRecognizers containsObject:otherGestureRecognizer]) {/// 防止里层scroll上下滚动
+        return NO;
+    }
     return YES;
 }
 
@@ -122,11 +145,14 @@
     if (!ju_scrollView) {
         UIView *supView=self.superview;
         while (supView&&![supView isKindOfClass:[JuMultiScrollView class]]) {
+            if ([supView isMemberOfClass:[UIScrollView class]]) {
+                ju_scrHorizontal=(UIScrollView *)supView;
+            }
             supView=supView.superview;
         }
         ju_scrollView=(JuMultiScrollView *)supView;
     }
-     startPoint=self.contentOffset;
+    startPoint=self.contentOffset;
     return [super hitTest:point withEvent:event];
 }
 
