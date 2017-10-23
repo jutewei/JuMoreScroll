@@ -94,7 +94,6 @@
     CGPoint startPoint;
     CGPoint lastPoint;
     __weak  JuMultiScrollView *ju_scrollView;
-    __weak  UIScrollView  *ju_scrHorizontal;
 }
 
 @end
@@ -135,20 +134,17 @@
     }
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    if ([ju_scrHorizontal.gestureRecognizers containsObject:otherGestureRecognizer]) {/// 防止里层scroll上下滚动
-        return NO;
+    if ([otherGestureRecognizer.view isEqual:ju_scrollView]) {/// 防止里层scroll上下滚动
+        return YES;
     }
-    return YES;
+    return NO;
 }
 
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
     if (!ju_scrollView) {
         UIView *supView=self.superview;
         while (supView&&![supView isKindOfClass:[JuMultiScrollView class]]) {
-            if ([supView isMemberOfClass:[UIScrollView class]]) {
-                ju_scrHorizontal=(UIScrollView *)supView;
-            }
-            supView=supView.superview;
+             supView=supView.superview;
         }
         ju_scrollView=(JuMultiScrollView *)supView;
     }
