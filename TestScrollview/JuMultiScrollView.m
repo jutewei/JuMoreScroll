@@ -18,9 +18,9 @@
 @implementation JuMultiScrollView
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
     startPoint=self.contentOffset;
-    if (_ju_topSpace==0) {
+//    if (_ju_topSpace==0) {
         _ju_topSpace=self.contentSize.height-self.frame.size.height;
-    }
+//    }
     
     isDragTable=NO;
     UIView *supView=[super hitTest:point withEvent:event];
